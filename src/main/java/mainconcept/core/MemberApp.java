@@ -8,7 +8,9 @@ import mainconcept.core.member.MemberServiceImpl;
 public class MemberApp {
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+//        MemberService memberService = new MemberServiceImpl();
 
         Member memberA = new Member(1L, "memberA", Grade.VIP);
 
@@ -16,6 +18,6 @@ public class MemberApp {
 
         Member findMember = memberService.findMember(1L);
         System.out.println("findMember = " + findMember.getName());
-
+        System.out.println("new Member = " + memberA.getName());
     }
 }

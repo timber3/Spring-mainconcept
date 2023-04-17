@@ -1,17 +1,23 @@
 package mainconcept.core;
 
-import mainconcept.core.member.Grade;
-import mainconcept.core.member.Member;
-import mainconcept.core.member.MemberService;
-import mainconcept.core.member.MemberServiceImpl;
+import mainconcept.core.discount.DiscountPolicy;
+import mainconcept.core.member.*;
 import mainconcept.core.order.Order;
 import mainconcept.core.order.OrderService;
 import mainconcept.core.order.OrderServiceImpl;
 
 public class OrderApp {
+
+
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+
+        AppConfig appconfig = new AppConfig();
+
+        MemberService memberService = appconfig.memberService();
+        OrderService orderService = appconfig.orderService();
+
+//        MemberService memberService = new MemberServiceImpl();
+//        OrderService orderService = new OrderServiceImpl();
 
         Long memberId = 1L;
         Member member = new Member(memberId, "MemberA", Grade.VIP);
