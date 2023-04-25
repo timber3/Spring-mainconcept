@@ -15,22 +15,25 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
     @Bean
-    public static MemoryMemberRepository memberRepository() {
+    public MemoryMemberRepository memberRepository() {
+        System.out.println("AppConfig.memberRepository called");
         return new MemoryMemberRepository();
     }
 
     @Bean
-    public static DiscountPolicy discountPolicy() {
+    public DiscountPolicy discountPolicy() {
         return new RateDiscountPolicy();
     }
 
     @Bean
     public MemberService memberService() {
+        System.out.println("AppConfig.memberService called");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public OrderService orderService() {
+        System.out.println("AppConfig.orderService called");
         return new OrderServiceImpl(
                 memberRepository(), discountPolicy()
         );
