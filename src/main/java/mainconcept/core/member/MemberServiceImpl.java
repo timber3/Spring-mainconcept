@@ -1,5 +1,9 @@
 package mainconcept.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberServiceImpl implements MemberService{
 
     // 현재 이상태는 DIP를 위반하고 있다.
@@ -13,6 +17,7 @@ public class MemberServiceImpl implements MemberService{
     // (생성자 주입)
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
