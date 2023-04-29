@@ -1,5 +1,6 @@
 package mainconcept.core.order;
 
+import lombok.RequiredArgsConstructor;
 import mainconcept.core.discount.DiscountPolicy;
 import mainconcept.core.discount.FixDiscountPolicy;
 import mainconcept.core.discount.RateDiscountPolicy;
@@ -10,22 +11,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
-
-    /*
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    //private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
-     private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
-     */
 
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    @Autowired
+//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
