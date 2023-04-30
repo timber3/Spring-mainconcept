@@ -1,14 +1,19 @@
 package mainconcept.core.discount;
 
+import mainconcept.core.annotation.MainDiscountPolicy;
 import mainconcept.core.member.Grade;
 import mainconcept.core.member.Member;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+@Component
+@MainDiscountPolicy
 class RateDiscountPolicyTest {
 
     RateDiscountPolicy discountPolicy = new RateDiscountPolicy();
