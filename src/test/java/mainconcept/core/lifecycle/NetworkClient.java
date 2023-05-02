@@ -1,0 +1,30 @@
+package mainconcept.core.lifecycle;
+
+public class NetworkClient {
+
+    private String url;
+
+    public NetworkClient() {
+        System.out.println("생성자 호출, url = " + url);
+        connect();
+        call("초기화 연결 메세지");
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    // 서비스 시작 호출 메서드
+    public void connect() {
+        System.out.println("connect : " + url);
+    }
+
+    public void call(String messgae) {
+        System.out.println("call : " + url + " message : " + messgae);
+    }
+
+    // 서비스 종료시 호출
+    public void disConnect() {
+        System.out.println("close: " + url);
+    }
+}
